@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Minecraft.index</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <style>
+        body {
+            background: #0f1117;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #1b1e27;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00eaff55;
+        }
+
+        .log-box {
+            height: 150px;
+            overflow-y: auto;
+            background: #0d0f14;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #00eaff40;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #00eaff;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2ff2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">
+        <img src="../static/img/favicon.png" width="32">
+        Minecraft.index Dashboard
+    </div>
+
+    <div class="container">
+
+        <!-- Uptime -->
+        <div class="card">
+            <h3>Server Uptime</h3>
+            <p id="uptime">-- saniye</p>
+        </div>
+
+        <!-- CPU -->
+        <div class="card">
+            <h3>CPU Kullanımı</h3>
+            <p id="cpu">--%</p>
+        </div>
+
+        <!-- API Test -->
+        <div class="card">
+            <h3>API Test Paneli</h3>
+            <button onclick="testAPI()">Test Et</button>
+            <p id="testResult"></p>
+        </div>
+
+        <!-- Mini Log -->
+        <div class="card">
+            <h3>Mini Log Paneli</h3>
+            <div class="log-box" id="logBox">Yükleniyor...</div>
+        </div>
+
+    </div>
+
+    <script>
+        function updateUptime() {
+            fetch("/api/uptime")
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById("uptime").innerText = data.uptime_seconds + " saniye";
+                });
+        }
+
+        function updateCPU() {
+            fetch("/api/cpu")
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById("cpu").innerText = data.cpu_percent + "%";
+                });
+        }
+
+        function testAPI() {
+            fetch("/api/test")
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById("testResult").innerText = data.message;
+                });
+        }
+
+        function loadLogs() {
+            fetch("/api/mini_log")
+                .then(r => r.json())
+                .then(data => {
+                    let logBox = document.getElementById("logBox");
+                    logBox.innerHTML = "";
+                    data.recent.forEach(e => {
+                        logBox.innerHTML += "• " + e + "<br>";
+                    });
+                });
+        }
+
+        setInterval(updateUptime, 1000);
+        setInterval(updateCPU, 1200);
+        setInterval(loadLogs, 2000);
+
+        updateUptime();
+        updateCPU();
+        loadLogs();
+    </script>
+
+</body>
+</html>

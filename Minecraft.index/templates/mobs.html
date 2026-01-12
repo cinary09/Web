@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobs - Minecraft.index</title>
+      <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+           <a class="logo">
+    <img src="../static/img/favicon1.png" class="logo-icon">
+    Minecraft.index
+</a>
+
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#features">Mob Types</a>
+                <a href="#why">Why Players Love Fighting Mobs</a>
+                <a href="#media">Media</a>
+                <a href="#live">Mobs etc.</a>
+            </nav>
+            <div class="nav-search">
+                <input id="site-search" placeholder="Search in index..." />
+                <button id="search-btn" class="btn small">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h4>Categories</h4>
+            <ul class="categories">
+    <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+    <li><a href="http://127.0.0.1:5001/items">Items</a></li>
+    <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+    <li><a href="http://127.0.0.1:5001/redstone">Redstone</a></li>
+    <li><a href="http://127.0.0.1:5001/seeds">Seeds</a></li>
+    <li><a href="http://127.0.0.1:5001/creepypasta">Creepypasta</a></li>
+</ul>
+
+            <div class="toc" id="toc">
+                <div class="toc-title">On This Page</div>
+                <nav id="toc-links"></nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- Info box (right-floating in original design) -->
+            <div class="infobox">
+                <img src="../static/img/mobstitle.png" alt="Zombie Mob">
+                <div class="info-title">Mobs (Zombie)</div>
+                <p><strong>Release:</strong> June 2010</p>
+                <p><strong>Creator:</strong> Markus Persson "Notch"</p>
+            </div>
+
+            <section id="overview">
+                <h1 class="page-title">Mob</h1>
+
+                <p class="lead">
+                    In Minecraft, mobs are living entities that can move around and interact with the world. They can be passive, neutral, or hostile, each with unique behaviors and characteristics.
+                </p>
+            </section>
+
+            <section id="features">
+                <h2 class="section-title">Mobs Types</h2>
+
+                <div class="feature-box">
+                    <ul>
+                        <li><strong>Passive Mobs:</strong> These mobs do not attack the player and often provide resources or companionship, such as cows, sheep, and villagers.</li>
+                        <li><strong>Neutral Mobs:</strong> These mobs will only attack if provoked, like wolves and endermen.</li>
+                        <li><strong>Hostile Mobs:</strong> These mobs actively attack players and include zombies, skeletons, and creepers.</li>
+                        <li><strong>Boss Mobs:</strong> Powerful mobs that present significant challenges, such as the Ender Dragon and the Wither.</li>
+                    </ul>
+
+                    <a href="https://www.youtube.com/@cinary09MC" class="btn" target="_blank">Visit My YouTube Channel</a>
+                </div>
+
+                <!-- glass card -->
+                    
+            </section>
+
+            <section id="why">
+                <h2 class="section-title">Why Players Love Fighting Mobs</h2>
+                <p>
+                    Fighting mobs adds excitement and challenge to the game, rewarding players with valuable resources and experience points that enhance their gameplay.
+                </p>
+            </section>
+
+            <section id="media">
+                <h2 class="section-title">Media</h2>
+
+                <!-- image with hover + tilt script target -->
+                <div class="media-card">
+                    <img id="hero-image" src="../static/img/mobsmedia.png" alt="Minecraft Mobs" width="750">
+                    <p class="caption">
+                        Explore the diverse world of Minecraft mobs, from friendly villagers to hostile creepers.
+                    </p>
+                </div>
+            
+            </section>
+
+            <section class="update-showcase">
+    <section id="live"></section>
+    <h2 class="section-title">Minecraft Mobs</h2>
+    <p>Minecraft mobs are living entities within the game that can interact with players and the environment. They can be categorized into three main types: passive, neutral, and hostile mobs.</p>   
+</section>
+
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div>© <span id="year"></span> cinary09 (@cinary09MC) — Built with blocks & code.</div>
+    </footer>
+
+<script>
+/* TABLE OF CONTENTS (auto-build from headings) */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Simple search (scroll to first match on page) */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    } else {
+        alert('No results on this page — try another keyword.');
+    }
+});
+
+/* Image tilt + hover micro-interaction */
+const hero = document.getElementById('hero-image');
+if(hero){
+    hero.addEventListener('mousemove', function(e){
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `perspective(800px) rotateY(${x * 16}deg) rotateX(${ -y * 12 }deg) scale(1.03)`;
+    });
+    hero.addEventListener('mouseleave', function(){
+        hero.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function copySeed() {
+    const seedText = document.getElementById("seedText").innerText;
+
+    navigator.clipboard.writeText(seedText).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        btn.innerText = "Copied!";
+        btn.style.background = "#00ffb3";
+
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "#00eaff";
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Seeds - Minecraft.index</title>
+      <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+           <a class="logo">
+    <img src="../static/img/favicon1.png" class="logo-icon">
+    Minecraft.index
+</a>
+
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#generation">World</a>
+                <a href="#video">Best Seed</a>
+                <a href="#determining">Determining</a>    
+                <a href="#media">Media</a>
+                <a href="#seeds">Notable Seeds</a>
+                <a href="http://127.0.0.1:5001/seedconverter">Seed Converter</a>
+            </nav>
+            <div class="nav-search">
+                <input id="site-search" placeholder="Search in index..." />
+                <button id="search-btn" class="btn small">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h4>Categories</h4>
+            <ul class="categories">
+                <li><a href="http://127.0.0.1:5001/mobs">Mobs</a></li>
+                <li><a href="http://127.0.0.1:5001/items">Items</a></li>
+                <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+                <li><a href="http://127.0.0.1:5001/redstone">Redstone</a></li>
+                <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+                <li><a href="http://127.0.0.1:5001/creepypasta">Creepypasta</a></li>
+            </ul>
+
+            <div class="toc" id="toc">
+                <div class="toc-title">On This Page</div>
+                <nav id="toc-links"></nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- Info box (right-floating in original design) -->
+            <div class="infobox">
+                <img src="../static/img/seedstitle.png" alt="Items Hotbar" class="infobox-image" />
+                <div class="info-title">Seed</div>
+                <div class="info-content">
+                    <p><strong>Type:</strong> JavaScript</p>
+                    <p><strong>Added in:</strong> Java Edition Beta 1.0 (June 28, 2010)</p>
+                </div>
+            </div>
+
+            <section id="overview">
+                <h1 class="page-title">World seed</h1>
+
+                <p class="lead">
+                    The world seed (or simply seed; referred to as seed for the world generator in-game) is a value made up of character(s) (including negative or positive integers) that is used as the basis for generating every Minecraft world.
+                </p>
+            </section>
+
+            <section id="generation">
+                <h2 class="section-title">World Generation</h2>
+
+                <div class="feature-box">
+                    <ul>
+                        <li>Whenever the game has to generate a new world, it calls upon an algorithm known as Perlin noise. This algorithm outputs a pseudo-random value that is then used to determine the characteristics and features of the world. However, the algorithm always outputs the same value each time for a constant starting point (seed). Thus, the same seed generates the same terrain every time.</li>
+                        <li>Whenever the world generation algorithm is updated (usually by adding new biomes to the game), the same seed no longer generates the same terrain. If the seed or generator changes in a saved world, new chunks are based on the new seed and no longer match those from the old seed. Deleted chunks can regenerate if the seed and generator remain the same, but changes if either the seed or generator changes. In fact, deleting chunks is sometimes done to let newly-introduced features appear in an old world.</li>
+                    </ul>
+
+                    <a href="https://www.youtube.com/@cinary09MC" class="btn" target="_blank" rel="noopener">Visit My YouTube Channel</a>
+                </div>
+            </section>
+
+            <section id="video">
+                <!-- glass card -->
+                    <div class="card-glass">
+                        <h3>The Best Seed (1.21.10+)</h3>
+                        <p>This seed generates a world featuring rare biome combinations, perfect for exploration and building. Players can discover incredible cliffs, lush caves, villages, and hidden loot early in the game.</p>
+                        <p>
+                        <strong>Seed Code:</strong> 
+                        <span id="seedText">8786675691072753366</span>
+                         <button class="copy-btn" onclick="copySeed()">Copy</button>
+</p>
+
+                        <a href="https://www.youtube.com/shorts/6pThv3oUZzY" class="btn small" target="_blank">The Seed Video</a>
+</p>
+
+                    </div>
+            </section>
+
+            <section id="determining">
+                <h2 class="section-title">Determining the seed</h2>
+                <p>
+                    
+                   In Java Edition, the player can enter the command <element class="seed-info-box code"><code>/seed</code></element> to view and copy the world's seed. This command is available in singleplayer worlds even if cheats are off. The player can also select 'Re-create' in the Worlds menu to see the seed.</p>
+                   In Bedrock Edition, the seed can be found and copied on the world options screen. There are also seed templates that offers the player several pre-set seeds to generate worlds with specific features near the spawn point. Additionally, the beta version has a visible seed on the top of the screen.
+            </section>
+
+            <section id="media">
+                <h2 class="section-title">Media</h2>
+
+                <!-- image with hover + tilt script target -->
+                <div class="media-card">
+                    <img id="hero-image" src="../static/img/seedsmedia.png" alt="seed" width="750" />
+                    <a href="https://www.google.com/search?sca_esv=9c4a8e921a72bc36&rlz=1C1GCEA_enTR1175TR1175&sxsrf=AE3TifPG5-xm_UI2PbCgqHqAAS9_NF5idw:1763889260251&q=minecraft+world+seed&source=lnms&fbs=AIIjpHwSU0Xn4FRaYzhfgs1jmQvOnw1dDD9iiBulB2fsjeHv6Rzi_t8nCYrA3VAYvcCIsvZtr46zps-73XVWEL76eMkvwW0U2zSB5SEysBmVifJRHfC4ePRta7T9SzjhnOoFKGnyMNzaQmSdIwjWkwwHaduIBleiTcXrr3msh8X4_l1axJy256VTUQ-Hrw_7dzhjmR2qsGFcZg4oz_HGl0RF9tkiVeU_oaoWLv-72WEaFDMUbRHKsm9TtLs1Fvx5bT4zaD2X85fD&sa=X&ved=2ahUKEwjv757G94eRAxUwRvEDHSmjHS4Q0pQJegQIBxAB&biw=1920&bih=911&dpr=1" class="btn try-btn" target="_blank" rel="noopener">Search Minecraft Seeds</a>
+                    <p class="caption"></p>
+                </div>
+            </section>
+
+            <section id="seeds" class="update-showcase">
+                <h2 class="section-title">Notable seeds</h2>
+                <p>Here is a concise list of some panorama seeds in Minecraft:</p>
+                <ul>
+                    <div class="seed-info-box">
+    <h2>Official & Historical Minecraft Seeds</h2>
+    <p>
+        The following map seeds have, at one point or another, been used for generating 
+        official Minecraft maps, resources, or historically important community content.
+    </p>
+
+    <h3>Demo World Seeds</h3>
+    <ul>
+        <li>
+            <b>Java Edition Demo World:</b> Enter <code>North Carolina</code> as the seed to play it in the full version.
+        </li>
+        <li>
+            <b>Beta 1.3_01 PC Gamer Demo World:</b> Use the seed <code>glacier</code> (lowercase).
+        </li>
+    </ul>
+
+    <h3>Title Screen Panorama Seeds</h3>
+    <ul>
+        <li>
+            Beta 1.8 Pre-release → 18w22c panorama:
+            <code>2151901553968352745</code> or <code>8091867987493326313</code>
+        </li>
+        <li>Bedrock 1.2.0: <code>95475027</code></li>
+        <li>Java 1.13: <code>1458140401</code> (typing <code>18w22a</code> generates it)</li>
+        <li>Java 1.14: <code>2802867088795589976</code></li>
+        <li>Java 1.15: <code>-4404205509303106230</code></li>
+        <li>Java 1.16: <code>6006096527635909600</code></li>
+        <li>Java 1.18: <code>2151901553968352745</code></li>
+        <li>Java 1.19: <code>-1696067516</code> (typing <code>thewildupdate</code>)</li>
+        <li>Java 1.20: <code>8554477380691140270</code></li>
+        <li>Java 1.21.6 + Bedrock 1.21.90: <code>8819392414030687460</code></li>
+    </ul>
+
+    <h3>Iconic Community Seeds</h3>
+    <ul>
+        <li>
+            <b>pack.png seed:</b> <code>3257840388504953787</code>  
+            Generated in Alpha v1.2.2.  
+            Default Bedrock seed since beta 1.18.20.21.  
+            Spawn: Savanna biome at <code>-208, 65, 0</code>.
+        </li>
+        <li>
+            <b>Skull on Fire painting:</b> <code>-6984854390176336655</code> or 
+            <code>-1044887956651363087</code> (Alpha v1.1.2_01 or earlier)
+        </li>
+        <li>
+            <b>Original Herobrine hoax screenshot:</b> <code>478868574082066804</code>  
+        </li>
+        <li>
+            <b>Original Herobrine livestream world:</b> <code>3609313613745973624</code>  
+        </li>
+    </ul>
+
+    <h3>Legacy Console Edition Tutorial Seeds</h3>
+    <ul>
+        <li>TU1 / TU3 — <code>1171544198849424676</code></li>
+        <li>TU5 — <code>6173462</code></li>
+        <li>TU7 / TU9 — <code>96414766889474996</code></li>
+        <li>TU12 / TU14 — <code>1227750481513469519</code></li>
+        <li>TU19 / TU31 / TU46 / TU69 — *Artificially created, no real seed*</li>
+    </ul>
+</div>
+
+                </ul>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div>© <span id="year"></span> cinary09 (@cinary09MC) — Built with blocks & code.</div>
+    </footer>
+
+<script>
+/* TABLE OF CONTENTS (auto-build from headings) */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Simple search (scroll to first match on page) */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    } else {
+        alert('No results on this page — try another keyword.');
+    }
+});
+
+/* Image tilt + hover micro-interaction (optional) */
+const hero = document.getElementById('hero-image');
+if(hero){
+    hero.addEventListener('mousemove', function(e){
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `perspective(800px) rotateY(${x * 16}deg) rotateX(${ -y * 12 }deg) scale(1.03)`;
+    });
+    hero.addEventListener('mouseleave', function(){
+        hero.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function copySeed() {
+    const seedText = document.getElementById("seedText").innerText;
+    navigator.clipboard.writeText(seedText).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        if(!btn) return;
+        btn.innerText = "Copied!";
+        btn.style.background = "#00ffb3";
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "#00eaff";
+        }, 1500);
+    }).catch(()=>{ /* ignore clipboard errors */ });
+}
+</script>
+
+<script>
+function convertSeed() {
+    const input = document.getElementById("seedInput").value;
+
+    if (!input) {
+        document.getElementById("actualSeed").innerText = "---";
+        return;
+    }
+
+    let hash = 0n;
+    const prime = 31n;
+
+    for (let i = 0; i < input.length; i++) {
+        hash = (hash * prime + BigInt(input.charCodeAt(i))) & BigInt("0xFFFFFFFFFFFFFFFF");
+    }
+
+    // Minecraft signed 64-bit dönüşü
+    let signed = hash;
+    const max = BigInt("0x7FFFFFFFFFFFFFFF");
+
+    if (signed > max) signed -= BigInt("0x10000000000000000");
+
+    document.getElementById("actualSeed").innerText = signed.toString();
+}
+</script>
+
+</body>
+</html>

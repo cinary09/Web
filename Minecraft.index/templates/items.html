@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items - Minecraft.index</title>
+      <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+           <a class="logo" >
+    <img src="../static/img/favicon1.png" class="logo-icon">
+    Minecraft.index
+</a>
+
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#features">Thrown Items</a>
+                <a href="#video">Item Sorter</a>
+                <a href="#stacking">Stacking</a>
+                <a href="#media">Media</a>
+                <a href="#list">List Of Items</a>
+            </nav>
+            <div class="nav-search">
+                <input id="site-search" placeholder="Search in index..." />
+                <button id="search-btn" class="btn small">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h4>Categories</h4>
+            <ul class="categories">
+    <li><a href="http://127.0.0.1:5001/mobs">Mobs</a></li>
+    <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+    <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+    <li><a href="http://127.0.0.1:5001/redstone">Redstone</a></li>
+    <li><a href="http://127.0.0.1:5001/seeds">Seeds</a></li>
+    <li><a href="http://127.0.0.1:5001/creepypasta">Creepypasta</a></li>
+</ul>
+
+            <div class="toc" id="toc">
+                <div class="toc-title">On This Page</div>
+                <nav id="toc-links"></nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- Info box (right-floating in original design) -->
+            <div class="infobox">
+                <img src="../static/img/itemstitle.png" alt="Items Hotbar" class="infobox-image" />
+                <div class="info-title">Items</div>
+                <div class="info-content">
+                    <p><strong>Type:</strong> Objects</p>
+                    <p><strong>Stackable:</strong> Yes (up to 64, 16, or 1)</p>
+                    <p><strong>Usable by:</strong> Players, Mobs, Armor Stands[BE only]</p>
+                    <p><strong>Storage:</strong> Inventories, Chests, Item Frames</p>
+            </div>
+
+            <section id="overview">
+                <h1 class="page-title">Items</h1>
+
+                <p class="lead">
+                    An item is an object that can exist within inventories of players, mobs, or armor stands; in various storage blocks (like chests or droppers), as well as in item frames and glow item frames.
+                </p>
+            </section>
+
+            <section id="features">
+                <h2 class="section-title">Thrown items </h2>
+
+                <div class="feature-box">
+                    <ul>
+                        <li>If an item that does not become a block is dropped, it becomes an entity represented by a sprite that floats above the ground. It remains for 5 minutes in a loaded chunk before despawning (except for the nether star), unless the player walks over it to pick it up, it is picked up by a mob, hopper or minecart with hopper, or it is destroyed by fire, lava, cactus, explosion, void, or <element class="seed-info-box code"><code>/kill</code></element> command.</li>   
+                        
+                        <li>Items can be thrown by the player using the drop key (default: Q) or by using <element class="seed-info-box code"><code>/drop</code></element> command.</li>
+                          
+                    </ul>
+
+                    <a href="https://www.youtube.com/@cinary09MC" class="btn" target="_blank">Visit My YouTube Channel</a>
+                </div>
+                </section>
+                <section id="video">
+                <!-- glass card -->
+                    <div class="card-glass">
+                        <h3>The Item Sorter (With Redstone)</h3>
+                        <p>This item sorter sorts items efficiently using redstone mechanisms.</p>
+                        <p>
+                        <strong>Who made:</strong> 
+                        <span id="seedText">BBlocks</span>
+</p>
+
+                        <a href="https://www.youtube.com/watch?v=QwKQ5523qQI&pp=ygUQYmVzdCBpdGVtIHNvcnRlctIHCQkLCgGHKiGM7w%3D%3D" class="btn small" target="_blank">Watch Tutorial</a>
+</p>
+
+                    </div>
+            </section>
+
+            <section id="stacking">
+                <h2 class="section-title">Stacking</h2>
+                <p>
+                   Most items can stack to 64. This includes all full blocks, whose outlines take up an entire block when placed.
+                    Some items, such as snowballs, empty buckets, eggs, signs, and ender pearls, can stack up to a maximum of 16.
+                     Some other items do not stack at all, such as anything with a durability (weapons, armor, and tools), filled buckets, and potions.
+                      All items can technically be forced to stack up to 99‌[JE only] or 127‌[BE only] using commands.
+                </p>
+            </section>
+
+            <section id="media">
+                <h2 class="section-title">Media</h2>
+
+                <!-- image with hover + tilt script target -->
+                <div class="media-card">
+                    <img  id="hero-image" src="../static/img/itemsmedia.png" alt="items" width="750">
+                    <a href="https://www.google.com/search?sca_esv=9c4a8e921a72bc36&rlz=1C1GCEA_enTR1175TR1175&sxsrf=AE3TifMCEpEjvRKFQlIU1SAjTKJSWB8ZXA:1763880357239&q=minecraft+items&source=lnms&fbs=AIIjpHxEwGQ3TYJKyhdBYJUl7frYCYuj0d5MwPMxZDz3HNofo_Lqt-H5zWpBIZxMTDOMY1msZaQXauw-vFh3DATYbv2iYzeZeLea9nx2vXD6by33NScVR-L0lFaMF8Nw0DYgIs9yruE52sPK61BKWjA0bhJYd8NurZco-NKRMztI65zjwkTZjFgoytXvkNyyEJHUfWhj0Q4hutwsusxd82ZpmNLJ0R8-Hqjx3cYiUeSqgjphQQmz-qc6zm1-2iNmwa4gY6rlr7_h3J1sg4z1s3s-rdIsFu0OtA&sa=X&ved=2ahUKEwi2kPqw1oeRAxVP0gIHHZihDBcQ0pQJegQIChAB&biw=1920&bih=911&dpr=1" class="btn try-btn" target="_blank">Search Items   </a>
+                    <p class="caption"></p>
+                </div>
+                
+                </section>
+
+            <section class="update-showcase">
+    <section id="list"></section>
+        <h2 class="section-title">List Of Items</h2>
+        <p>Here is a comprehensive list of items in Minecraft:</p>
+        <ul>
+            <li>Acacia Boat</li>
+            <li>Apple</li>
+            <li>Arrow</li>
+            <li>Bedrock</li>
+            <li>Blaze Rod</li>
+            <li>Book</li>
+            <li>Bow</li>
+            <li>Bucket</li>
+            <li>Carrot</li>
+            <li>Diamond Sword</li>
+            <li>Ender Pearl</li>
+            <li>Golden Apple</li>
+            <li>Iron Ingot</li>
+            <li>Leather Armor</li>
+            <li>Map</li>
+            <li>Netherite Scrap</li>
+            <li>Oak Planks</li>
+            <li>Redstone Dust</li>
+            <li>Shield</li>
+            <li>Wooden Pickaxe</li>
+
+        </ul>
+        <p>This list is not exhaustive, and there are many more items available in the game. For a complete list, please refer to the official Minecraft Wiki or in-game resources.</p>
+        
+</section>
+
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div>© <span id="year"></span> cinary09 (@cinary09MC) — Built with blocks & code.</div>
+    </footer>
+
+<script>
+/* TABLE OF CONTENTS (auto-build from headings) */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Simple search (scroll to first match on page) */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    } else {
+        alert('No results on this page — try another keyword.');
+    }
+});
+
+/* Image tilt + hover micro-interaction */
+const hero = document.getElementById('hero-image');
+if(hero){
+    hero.addEventListener('mousemove', function(e){
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `perspective(800px) rotateY(${x * 16}deg) rotateX(${ -y * 12 }deg) scale(1.03)`;    });
+    hero.addEventListener('mouseleave', function(){
+        hero.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function copySeed() {
+    const seedText = document.getElementById("seedText").innerText;
+
+    navigator.clipboard.writeText(seedText).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        btn.innerText = "Copied!";
+        btn.style.background = "#00ffb3";
+
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "#00eaff";
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

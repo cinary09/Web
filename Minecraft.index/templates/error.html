@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - You Died</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/error.css')     }}">    
+</head>
+<body>
+
+<div class="death-screen">
+    <h1> You Died!</h1>
+
+    <div class="hearts">
+    <span>❤️</span>
+    <span>❤️</span>
+    <span>❤️</span>
+</div>
+
+
+    <p class="reason">
+        The page
+        <span class="bad-url">{{ path }}</span>
+        does not exist.
+    </p>
+
+    <p class="tip">
+        Maybe it was deleted, moved, or never spawned in this world.
+    </p>
+
+    <p class="ai-reason">
+     AI says: {{ ai_reason }}
+</p>
+
+
+    <div class="buttons">
+        <a href="/" class="btn">Respawn</a>
+        <a href="javascript:history.back()" class="btn secondary">Back</a>
+    </div>
+</div>
+
+</body>
+</html>

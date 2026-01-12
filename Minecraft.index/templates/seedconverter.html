@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Seed Converter - Minecraft.index</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+          <a class="logo">
+    <img src="../static/img/favicon1.png" class="logo-icon">
+    Minecraft.index
+</a>
+
+            <nav class="nav-links">
+                <a href="#converter">Seed Converter</a>
+            </nav>
+            <div class="nav-search">
+                <input id="site-search" placeholder="Search in index..." />
+                <button id="search-btn" class="btn small">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h4>Categories</h4>
+            <ul class="categories">
+                <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+                <li><a href="http://127.0.0.1:5001/mobs">Mobs</a></li>
+                <li><a href="http://127.0.0.1:5001/items">Items</a></li>
+                <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+                <li><a href="http://127.0.0.1:5001/redstone">Redstone</a></li>
+                <li><a href="http://127.0.0.1:5001/seeds">Seeds</a></li>
+                <li><a href="http://127.0.0.1:5001/creepypasta">Creepypasta</a></li>
+            </ul>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        
+<section id="converter" class="update-showcase">
+  <div class="seed-box">
+    <h2>Convert a string to actual seed</h2>
+
+    <input id="seedInput" type="text" placeholder="Enter string..." oninput="convertSeed()">
+
+    <p>Actual seed: <span id="actualSeed">Empty string should result in 0, but Minecraft actually generates a random number as the seed.</span></p>
+</div>
+
+</section>
+
+<script>
+/* TABLE OF CONTENTS (auto-build from headings) */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Simple search (scroll to first match on page) */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    } else {
+        alert('No results on this page — try another keyword.');
+    }
+});
+
+/* Image tilt + hover micro-interaction (optional) */
+const hero = document.getElementById('hero-image');
+if(hero){
+    hero.addEventListener('mousemove', function(e){
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${ -y * 6 }deg) scale(1.03)`;
+    });
+    hero.addEventListener('mouseleave', function(){
+        hero.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function copySeed() {
+    const seedText = document.getElementById("seedText").innerText;
+    navigator.clipboard.writeText(seedText).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        if(!btn) return;
+        btn.innerText = "Copied!";
+        btn.style.background = "#00ffb3";
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "#00eaff";
+        }, 1500);
+    }).catch(()=>{ /* ignore clipboard errors */ });
+}
+</script>
+
+<script>
+function convertSeed() {
+    const input = document.getElementById("seedInput").value;
+
+    if (!input) {
+        document.getElementById("actualSeed").innerText = "---";
+        return;
+    }
+
+    let hash = 0n;
+    const prime = 31n;
+
+    for (let i = 0; i < input.length; i++) {
+        hash = (hash * prime + BigInt(input.charCodeAt(i))) & BigInt("0xFFFFFFFFFFFFFFFF");
+    }
+
+    // Minecraft signed 64-bit dönüşü
+    let signed = hash;
+    const max = BigInt("0x7FFFFFFFFFFFFFFF");
+
+    if (signed > max) signed -= BigInt("0x10000000000000000");
+
+    document.getElementById("actualSeed").innerText = signed.toString();
+}
+</script>
+
+</body>
+</html>

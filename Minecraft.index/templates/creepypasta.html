@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror World - Minecraft.index</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-inner">
+        <a class="logo">
+            <img src="../static/img/favicon1.png" class="logo-icon">
+            Minecraft.index
+        </a>
+
+        <nav class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#anomalies">Anomalies</a>
+            <a href="#lore">Lore</a>
+            <a href="#evidence">Evidence</a>
+            <a href="#files">Files</a>
+        </nav>
+
+        <div class="nav-search">
+            <input id="site-search" placeholder="Search anomalies..." />
+            <button id="search-btn" class="btn small">Search</button>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <aside class="sidebar">
+        <h4>Categories</h4>
+        <ul class="categories">
+            <li><a href="http://127.0.0.1:5001/mobs">Mobs</a></li>
+            <li><a href="http://127.0.0.1:5001/items">Items</a></li>
+            <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+            <li><a href="http://127.0.0.1:5001/redstone">Redstone</a></li>
+            <li><a href="http://127.0.0.1:5001/seeds">Seeds</a></li>
+            <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+        </ul>
+
+        <div class="toc" id="toc">
+            <div class="toc-title">On This Page</div>
+            <nav id="toc-links"></nav>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- INFOBOX -->
+        <div class="infobox">
+            <img src="../static/img/creepytitle.png" alt="Mirror World">
+            <div class="info-title">Seed 0:0 Mirror World</div>
+            <p><strong>Discovered:</strong> Unknown</p>
+            <p><strong>Origin File:</strong> looking_at_you.dat</p>
+        </div>
+
+        <section id="overview">
+            <h1 class="page-title">Mirror World</h1>
+            <p class="lead">
+                “0:0” is not a normal seed. You cannot enter it manually — the game generates it on its own.  
+                Most players report that the light comes from the wrong direction, mobs have no shadows,  
+                and the player model moves with a one-frame delay behind actual input.
+            </p>
+        </section>
+
+        <section id="anomalies">
+            <h2 class="section-title">Documented Anomalies</h2>
+
+            <div class="feature-box">
+                <ul>
+                    <li><strong>Light Source:</strong> The sun is visible but casts no shadows. The light does not bounce from the ground.</li>
+                    <li><strong>Shadow-Creatures:</strong> Dark silhouettes appear in tree shadows but disappear when approached.</li>
+                    <li><strong>Model Desync:</strong> Pressing F5 rapidly causes the model to stare at the player for a moment before correcting.</li>
+                    <li><strong>Village Rooms:</strong> Under every village, a hidden room contains a single sign: “You weren’t supposed to see this.”</li>
+                    <li><strong>Portal:</strong> Instead of the Nether, the portal sends the player to a dark mirrored version of the world.</li>
+                </ul>
+
+                <a href="https://www.youtube.com/@cinary09MC" class="btn" target="_blank">Visit my YouTube Channel</a>
+            </div>
+        </section>
+
+        <section id="lore">
+            <h2 class="section-title">Lore & Theories</h2>
+            <p>
+                Some believe this seed is a leftover testing environment.  
+                Others claim it connects corrupted worlds drifting in the game’s unused memory space.  
+                The fact that the Nether leads to a “dark reflection” of the overworld suggests that  
+                the seed generates a mirrored dimension rather than a separate world.
+            </p>
+        </section>
+
+        <section id="evidence">
+            <h2 class="section-title">Evidence</h2>
+
+            <div class="media-card">
+                <img id="hero-image" src="../static/img/creepymedia.png" alt="Evidence" width="750">
+                <p class="caption">
+                    One of the captured scenes from the Mirror World.  
+                    The silhouette on the other side performs the player’s movement two seconds earlier.
+                </p>
+            </div>
+        </section>
+        <section id="files">
+            <h2 class="section-title">Recovered Files</h2>
+            <p>
+                The seed folder was found partially corrupted.  
+                Most files were unreadable, except for one: <code>LOOKING_AT_YOU.dat</code>.  
+                This file appears to be the seed data for the Mirror World.
+            </p>
+            <p>
+                Attempts to open other files result in errors or display garbled data.  
+                It is speculated that the corruption occurred during an unexpected shutdown while the world was active.
+            </p>
+        </section>
+
+    </main>
+
+</div>
+
+<footer class="site-footer">
+    <div>© <span id="year"></span> cinary09 — Mirror seed restored.</div>
+</footer>
+
+<script>
+/* TOC */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Search */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    }
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

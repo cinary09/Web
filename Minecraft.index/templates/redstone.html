@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redstone - Minecraft.index</title>
+      <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+         <a class="logo" >
+    <img src="../static/img/favicon1.png" class="logo-icon">
+    Minecraft.index
+</a>
+
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#circuits">Circuits</a>
+                <a href="#why">Why Redstone</a>
+                <a href="#media">Media</a>
+                <a href="#creations">Redstone Creations</a>
+            </nav>
+            <div class="nav-search">
+                <input id="site-search" placeholder="Search in index..." />
+                <button id="search-btn" class="btn small">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h4>Categories</h4>
+            <ul class="categories">
+    <li><a href="http://127.0.0.1:5001/mobs">Mobs</a></li>
+    <li><a href="http://127.0.0.1:5001/items">Items</a></li>
+    <li><a href="http://127.0.0.1:5001/blocks">Blocks</a></li>
+    <li><a href="http://127.0.0.1:5001/home">Home</a></li>
+    <li><a href="http://127.0.0.1:5001/seeds">Seeds</a></li>
+    <li><a href="http://127.0.0.1:5001/creepypasta">Creepypasta</a></li>
+</ul>
+
+            <div class="toc" id="toc">
+                <div class="toc-title">On This Page</div>
+                <nav id="toc-links"></nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- Info box (right-floating in original design) -->
+            <div class="infobox">
+                <img src="../static/img/redstonetitle.png" alt="Redstone Dust">
+                <div class="info-title">Redstone</div> 
+                <p><strong>Release:</strong> July 2010</p>
+                <p><strong>Creator:</strong> Markus Persson "Notch"</p>
+            </div>
+
+            <section id="overview">
+                <h1 class="page-title">Redstone</h1>
+
+                <p class="lead">
+                    A redstone circuit is a build that is primarily focused on dealing with logic and redstone signals. Circuits can be used to transmit redstone signals, perform operations with logic gates, store data, shorten or lengthen redstone signals, make clocks, and more.
+                </p>
+            </section>
+
+            <section id="circuits">
+                <h2 class="section-title">Redstone Circuits</h2>
+
+                <div class="feature-box">
+                    <ul>
+                        <li><strong></strong> The Redstone mechanics article provides more information on these concepts.</li>
+                        <li><strong></strong> The Redstone components article adds a list and description of all blocks that interact with redstone power in general.</li>
+                        <li><strong></strong> The Mechanisms tutorial complements this article with an assortment of mechanism designs using circuits described here.</li>
+                        <li><strong></strong> The Redstone tips tutorial gives general advice about building redstone mechanisms.</li>
+                    </ul>
+
+                    <a href="https://www.youtube.com/@cinary09MC" class="btn" target="_blank">Visit My YouTube Channel</a>
+                </div>
+
+                <!-- glass card -->
+                    <div class="card-glass">
+                        <h3>The Best Redstoner</h3>
+                        <p>This man has made minecraft in minecraft with redstone and made chatgpt in minecraft by only using redstone.</p>
+                        <p>
+                        <strong>Who: </strong> 
+                        <span id="seedText">sammyuri</span>
+</p>
+
+                        <a href="https://www.youtube.com/@sammyuri" class="btn small" target="_blank">See Sammyuri</a>
+</p>
+
+                    </div>
+            </section>
+
+            <section id="why">
+                <h2 class="section-title">Why Players use Redstone</h2>
+                <p>
+                    Because of its versatility and potential for creativity, redstone has become an integral part of the Minecraft experience. Players use redstone to enhance their gameplay, create complex systems, and bring their imaginative ideas to life within the game world.
+                </p>
+            </section>
+
+            <section id="media">
+                <h2 class="section-title">Media</h2>
+
+                <!-- image with hover + tilt script target -->
+                <div class="media-card">
+                    <img id="hero-image" src="../static/img/redstonemedia.png" alt="redstone in Minecraft">
+                    <a href="https://www.google.com/search?q=minecraft+redstone&sca_esv=9c4a8e921a72bc36&rlz=1C1GCEA_enTR1175TR1175&biw=1920&bih=911&sxsrf=AE3TifO66N0P7WnfBkK5YLSSCD36SHcbwA%3A1763835496286&ei=aP4hacqgEYDkxc8Pj9Gh4Q0&oq=minecraft+red&gs_lp=Egxnd3Mtd2l6LXNlcnAiDW1pbmVjcmFmdCByZWQqAggBMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjKJFDIA1iLHnAAeAKQAQCYAYIBoAH5A6oBAzAuNLgBAcgBAPgBAZgCBaACrgTCAgQQABhHwgIKEC4YgAQYJxiKBcICDBAjGIAEGBMYJxiKBcICBBAjGCfCAgoQLhiABBhDGIoFwgIIEAAYgAQYsQPCAgoQABiABBhDGIoFwgIQEAAYgAQYsQMYQxiDARiKBcICCxAAGIAEGLEDGIMBwgIXEC4YgAQYigUYlwUY3AQY3gQY4ATYAQGYAwCIBgGQBgi6BgYIARABGBSSBwMxLjSgB7YfsgcDMC40uAegBMIHBzAuMS4yLjLIByU&sclient=gws-wiz-serp" class="btn try-btn" target="_blank">Search Redstone   </a>
+                    <p class="caption">Redstone isn't just a block — it’s a machine shaped by your imagination.</p>
+                </div>
+            
+            </section>
+
+            <section class="update-showcase">
+    
+                
+                <h2 class="section-title" id="creations">Redstone Creations</h2>
+                <p>Explore some of the most impressive redstone creations made by the Minecraft community in real-time.</p>
+
+                <div class="live-cards">
+                    <div class="live-card">
+                        <h3>Redstone Calculator @rekrap2</h3>
+                        <a href="https://www.youtube.com/watch?v=23qy8OjNabs&t=1556s&pp=ygUTcmVkc3RvbmUgY2FsY3VsYXRvcg%3D%3D" class="btn small" target="_blank">Watch on YouTube</a>
+                    </div>
+                    <div class="live-card">
+                        <h3>Redstone Computer @mattbatwings</h3>
+                        <a href="https://www.youtube.com/watch?v=3gBZHXqnleU&pp=ygURcmVkc3RvbmUgY29tcHV0ZXI%3D" class="btn small" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+</section>
+
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div>© <span id="year"></span> cinary09 (@cinary09MC) — Built with redstone & code.</div>
+    </footer>
+
+<script>
+/* TABLE OF CONTENTS (auto-build from headings) */
+(function buildTOC(){
+    const tocContainer = document.getElementById('toc-links');
+    if(!tocContainer) return;
+    const headings = document.querySelectorAll('main .section-title, main .page-title');
+    let html = '';
+    headings.forEach(h => {
+        const id = h.id || h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        h.id = id;
+        html += '<a href="#' + id + '">' + h.textContent + '</a>';
+    });
+    tocContainer.innerHTML = html;
+})();
+
+/* Simple search (scroll to first match on page) */
+document.getElementById('search-btn').addEventListener('click', function(){
+    const q = document.getElementById('site-search').value.trim().toLowerCase();
+    if(!q) return;
+    const matches = Array.from(document.querySelectorAll('main p, main li, main h2, main h1'))
+        .filter(n => n.textContent.toLowerCase().includes(q));
+    if(matches.length) {
+        matches[0].scrollIntoView({behavior:'smooth', block:'center'});
+        matches[0].classList.add('search-highlight');
+        setTimeout(()=>matches[0].classList.remove('search-highlight'), 2200);
+    } else {
+        alert('No results on this page — try another keyword.');
+    }
+});
+
+/* Image tilt + hover micro-interaction */
+const hero = document.getElementById('hero-image');
+if(hero){
+    hero.addEventListener('mousemove', function(e){
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.transform = `perspective(800px) rotateY(${x * 16}deg) rotateX(${ -y * 12 }deg) scale(1.03)`;
+    });
+    hero.addEventListener('mouseleave', function(){
+        hero.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+/* footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+function copySeed() {
+    const seedText = document.getElementById("seedText").innerText;
+
+    navigator.clipboard.writeText(seedText).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        btn.innerText = "Copied!";
+        btn.style.background = "#00ffb3";
+
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "#00eaff";
+        }, 1500);
+    });
+}
+</script>
+z
+</body>
+</html>

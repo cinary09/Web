@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cinary09 | Creator</title>
+    <link rel="stylesheet" href="../static/css/creator.css">
+</head>
+<body>
+
+<div class="creator-container">
+    <h1 class="name">cinary09</h1>
+    <p class="job">Game & Web Developer</p>
+
+    <div class="buttons">
+        <button onclick="showContent('unity')">Unity</button>
+        <button onclick="showContent('web')">Web</button>
+        <button onclick="showContent('discord')">Discord Bots</button>
+    </div>
+
+    <div id="content" class="content-box">
+        <p>Select a category to see what I build.</p>
+    </div>
+</div>
+
+<script>
+function showContent(type) {
+    const content = document.getElementById("content");
+
+    if (type === "unity") {
+        content.innerHTML = `
+            <h2>🎮 Unity</h2>
+            <p>
+                I develop games using Unity and C#.<br>
+                Focus areas: FPS mechanics, UI systems, performance optimization.
+            </p>
+        `;
+    }
+
+    if (type === "web") {
+        content.innerHTML = `
+            <h2>🌐 Web</h2>
+            <p>
+                I build web apps using HTML, CSS, Flask and databases.<br>
+                Login systems, portfolios and interactive pages.
+            </p>
+        `;
+    }
+
+    if (type === "discord") {
+        content.innerHTML = `
+            <h2>🤖 Discord Bots</h2>
+            <p>
+                I create Discord bots using Python.<br>
+                Moderation, commands and automation.
+            </p>
+        `;
+    }
+}
+</script>
+
+</body>
+</html>
